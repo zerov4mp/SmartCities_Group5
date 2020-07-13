@@ -1,0 +1,13 @@
+Objects:
+room person chair
+
+
+Predicates:
+State ob eine Person neu ist und somit noch einen sitzplatz braucht.
+(new-person ?p - person)
+
+State ob ein Stuhl belegt ist oder nicht
+(free-chair ?c - chair ?r - room)
+
+State des Raumes, ob im jeweiligen Raum x+1 personen sind, um gleiche verteilung sicherzustellen.
+(one-more-person-in-room ?r - room)

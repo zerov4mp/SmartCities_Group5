@@ -1,0 +1,2 @@
+(define (problem SliosDistributionProblem) (:domain SliosDistributionDomain)
+(:objects r1 r2 r3 - room p1 - person c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12 c13 c14 c15 c16 c17 c18 - chair )(:init (free-chair c3 r1) (free-chair c4 r1) (free-chair c5 r1) (free-chair c6 r1) (free-chair c7 r2) (free-chair c8 r2) (free-chair c9 r2) (free-chair c10 r2) (free-chair c11 r2) (free-chair c12 r2) (free-chair c14 r3) (free-chair c15 r3) (free-chair c16 r3) (free-chair c18 r3) (two-more-person-in-room r1) (two-more-person-in-room r3) (new-person p1) ) (:goal (and (not(new-person p1)) )) )

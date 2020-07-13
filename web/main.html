@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SliOS</title>
+		<link rel="stylesheet" href="main.css">
+
+		<script src="js/three.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/GLTFLoader.js"></script>
+		<script type="text/javascript" src="/eel.js"></script>
+		<script src="js/TextureLoader.js"></script>
+		<script src="js/MeshLoader.js"></script>
+		<script src="js/ground.js"></script>
+		<script src="js/floor.js"></script>
+		<script src="js/wall.js"></script>
+		<script src="js/window.js"></script>
+
+
+		<script src="js/chair.js"></script>
+		<script src="js/desk.js"></script>
+		<script src="js/sensor.js"></script>
+		<script src="js/ac.js"></script>
+		<script src="js/bookshelf.js"></script>
+		<!-- <script src="js/plant.js"></script> -->
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+
+	<div id="threeContainer"></div>
+
+	<div id="menu">
+		<table>
+			<tr class="menuentry">
+          		<td class="menubutton" id="showSensorButton">
+            	Show Sensors
+          		</td>
+			</tr>
+			<tr class="menuentry">
+          		<td class="menubutton" id="showPlanButton">
+            	Show AI Planner
+          		</td>
+			</tr>
+			<tr class="menuentry">
+          		<td class="menubutton" id="addPerson">
+            	Add person
+          		</td>
+			</tr>
+			<tr class="menuentry">
+          		<td class="menubutton" id="removePerson">
+            	Remove person
+          		</td>
+			</tr>
+			<tr class="menuentry">
+          		<td class="menubutton" id="toggleClock">
+            	Show Clock
+          		</td>
+			</tr>
+			<tr class="menuentry">
+          		<td class="menubutton" id="lightSwitch1">
+            	Light Switch 1
+          		</td>
+			</tr>
+						<tr class="menuentry">
+          		<td class="menubutton" id="lightSwitch2">
+            	Light Switch 2
+          		</td>
+			</tr>
+						<tr class="menuentry">
+          		<td class="menubutton" id="lightSwitch3">
+            	Light Switch 3
+          		</td>
+			</tr>
+		</table>
+	</div>
+
+
+	<div id="clockDiv">
+
+	</div>
+
+	<div id="sensorTooltipDiv">
+			<table id="sensorTooltip"></table>
+
+			<table>
+				<tr class="menuentry">
+          		<td class="menubutton" id="closeSensorTooltipButton">
+            	Close
+          		</td>
+				</tr>
+			</table>
+
+
+	</div>
+
+
+	<div id="sensorDiv">
+			<table id="sensors">
+				<tr>
+					<th> Sensor ID</th>
+					<th> Sensor value</th>
+				</tr>
+			</table>
+
+			<table>
+				<tr class="menuentry">
+          		<td class="menubutton" id="closeSensorButton">
+            	Close
+          		</td>
+				</tr>
+			</table>
+	</div>
+
+
+		<div id="planDiv">
+
+
+			<h1>Environment</h1>
+			<h2>Environment Problem </h2>
+			<table id="envProblem">
+			</table>
+			<h2>Environment Actions</h2>
+			<table id="envActions">
+				<tr id="envA1"> </tr>
+				<tr id="envA2"> </tr>
+				<tr id="envA3"> </tr>
+				<tr id="envA4"> </tr>
+				<tr id="envA5"> </tr>
+			</table>
+
+			<h1>Distribution</h1>
+			<h2>Distribution Problem </h2>
+			<table id="distProblem">
+			</table>
+			<h2>Distribution Actions </h2>
+			<table id="distActions">
+				<tr id="distA1"> </tr>
+				<tr id="distA2"> </tr>
+				<tr id="distA3"> </tr>
+				<tr id="distA4"> </tr>
+				<tr id="distA5"> </tr>
+			</table>
+
+
+
+
+			<table>
+				<tr class="menuentry">
+          		<td class="menubutton" id="closePlanButton">
+            	Close
+          		</td>
+				</tr>
+			</table>
+	</div>
+
+	</body>
+</html>

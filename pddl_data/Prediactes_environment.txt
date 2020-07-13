@@ -1,0 +1,36 @@
+Temperatur im Raum, midTemp, wenn Temperatur nicht verändert werden soll
+(lowTemp ?r - room)
+(midTemp ?r - room)
+(highTemp ?r - room)
+
+Humidity im Raum, midHum, wenn Humidity nicht verändert werden soll
+(lowHum ?r - room)
+(midHum ?r - room)
+(highHum ?r - room)
+
+Temperatur und Humidity von draußen. Je nachdem ob höher oder niedriger jeweiliges auf true setzen. Falls Innen und außen gleich, beide false
+(higherOutsideTemp ?r - room)
+(lowerOutsideTemp ?r - room)
+(higherOutsideHum ?r - room)
+(lowerOutsideHum ?r - room)
+
+Höhe des CO2 gehalts. Falls zu hoch auf true.
+(highCO2 ?r - room)
+
+Indikator für schlechtes Wetter (sturm, regen,...) bei dem das Fenster geschlossen sein sollte.
+(badWeather ?o - outside)
+
+Licht level im raum und draußen. Wenn zu dunkel, dann true.
+(lowLight ?r - room)
+(lowlightOutside ?o - outside)
+
+Sound level im raum. wenn zu laut dann true
+(loudSound ?r - room)
+
+Wenn Personen im Raum (Bewegung)
+(presenceInRoom ?r - room )
+
+Status von window, climate and light
+(windowOpen ?r - room)
+(climateOn ?r - room)
+(lightOn ?r - room)

@@ -1,0 +1,197 @@
+html{
+overflow: hidden;
+height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-image: linear-gradient( 10deg, #085078, #85d8ce );
+}
+
+
+h1{
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+h2{
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto; /* or margin: 0 auto 0 auto */
+  border-collapse: separate;
+  border-spacing: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  table-layout: fixed;
+  /*FONT */
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 26px;
+}
+
+#threeContainer {
+position: absolute;
+left:10%;
+top:7.5%;
+margin: auto;
+border-radius: 15px 50px 30px;
+z-index: 1;
+display: block;
+}
+
+#menu {
+position: absolute;
+width:8%;
+left:1%;
+top:7.5%;
+margin: auto;
+border-radius: 15px 50px 30px;
+z-index: 2;
+display: block;
+}
+
+.menuentry{
+padding-bottom: 3em;
+}
+
+input{
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.menubutton {
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+  font-size: 14px;
+    /*FONT */
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 26px;
+}
+
+.menubutton:hover {
+    background-image: linear-gradient( 10deg, #1D976C, #93F9B9 );
+}
+
+#planDiv {
+  width: 35%;
+  height: 70%;
+  left: 12%;
+  top: 15%;
+  position: absolute;
+  z-index: 10100;
+  pointer-events: auto;
+  visibility: hidden;
+
+
+  padding: 10px;
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  line-height: 26px;
+  text-indent: 30px;
+  overflow-y: scroll;
+}
+
+
+#sensorDiv {
+  width: 30%;
+  height: 50%;
+  left: 12%;
+  top: 15%;
+  position: absolute;
+  z-index: 10001;
+  pointer-events: auto;
+  visibility: hidden;
+
+
+  padding: 10px;
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  line-height: 26px;
+  text-indent: 30px;
+  overflow-y: scroll;
+}
+
+#sensorTooltipDiv {
+  width: 30%;
+  height: 25%;
+  left: 12%;
+  top: 15%;
+  position: absolute;
+  z-index: 10005;
+  pointer-events: auto;
+  visibility: hidden;
+
+
+  padding: 10px;
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  line-height: 26px;
+  text-indent: 30px;
+  overflow-y: scroll;
+}
+
+#clockDiv {
+  width: 5%;
+  height: 5%;
+  left: 50%;
+  bottom: 10%;
+  position: absolute;
+  z-index: 10008;
+  pointer-events: auto;
+  visibility: hidden;
+
+  padding: 10px;
+  border: 2px solid #FFF;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  background-image: linear-gradient( 10deg, #085078, #85d8ce );
+
+  color: #f6fbff;
+  font-family: 'Lucida Sans', Arial, sans-serif;
+  overflow-y: scroll;
+  font-size: 0.8vw;
+  text-align: center;
+}
+
