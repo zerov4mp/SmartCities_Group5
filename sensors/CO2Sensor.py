@@ -10,7 +10,7 @@ class CO2Sensor(Sensor):
         return json.dumps(msg)
 
     def partsPerMillionToPercent(self, ppm):
-        return (ppm / 1000000)
+        return (ppm / 1000000) * 100
 
     def ppmDangerLevel(self, ppm):
         if ppm <= 450:
@@ -43,9 +43,9 @@ class CO2Sensor(Sensor):
         elif choice == 998:
             ppm = randrange(0, 35000, 1)
         elif choice == 999:
-            ppm = randrange(0, 8000000, 1)
+            ppm = randrange(0, 80000, 1)
         else:
-            ppm = randrange(0, 21000000, 1)
+            ppm = randrange(0, 210000, 1)
 
         if 'co2' in self.envEffect:
             ppm = ppm+self.envEffect['co2']
