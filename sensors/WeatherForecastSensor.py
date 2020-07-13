@@ -5,7 +5,7 @@ import json
 from mq.Producer import Producer
 from realWorld.Location import Location
 
-api_key = '9c69b31391af4ccdf5727449bc03d324'
+from config import api_key
 
 
 class WeatherForecastSensor(Sensor):
