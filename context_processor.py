@@ -8,7 +8,7 @@ import eel
 
 from ai_planner import update_problem_file_objects, update_problem_file_init, get_plan, sdd, sdp, sed, sep, \
     update_problem_file_goal, start_planning
-from plan_executor import Executioner
+from plan_executor import Executor
 from problem_writer import problem_writer
 
 
@@ -23,7 +23,7 @@ class ContextBridge:
         self.context_state = self.create_recursive_dict()
         self.context_state_outside = self.create_recursive_dict()
         self.freq = frequency
-        self.executioner = Executioner()
+        self.executor = Executor()
 
     def create_recursive_dict(self):
         return collections.defaultdict(self.create_recursive_dict)
@@ -37,6 +37,12 @@ class ContextBridge:
             self.context_state_outside[resp['location']][resp['function']][resp['type']][resp['id']] = self.create_context(resp['type'], resp['value'])
 
     def create_context(self, type, value):
+        """
+         The raw data of the sensors is interpreted here for the problem file
+        :param type:
+        :param value:
+        :return:
+        """
         if type == "temperature":
             if int(value) < 20:
                 return "low"
@@ -115,6 +121,10 @@ class ContextBridge:
 
 
     def update_problem(self):
+        """
+         Updates the string that will be used for the problem file generator using the current context
+        :return:
+        """
         pw = problem_writer()
 
         #context_state_copy = copy.deepcopy(self.context_state)
@@ -257,13 +267,18 @@ class ContextBridge:
         return pw, [pw.initEnvironment, pw.objectsEnvironment, pw.initDistribution, pw.objectsDistribution, pw.goalDistribution]
 
     def create_plan(self):
+        """
+        Creates the problem files using the current context and queries the plan from the ai planner.
+        The returned plan is then given to the plan executor
+        :return:
+        """
         time.sleep(6)
         while True:
             pw, _ = self.update_problem()
             update_problem_file_objects(sep, pw.objectsEnvironment)
             update_problem_file_init(sep, pw.initEnvironment)
             plan_name, plan = start_planning(sed, sep)
-            self.executioner.execute_plan(plan_name)
+            self.executor.execute_plan(plan_name)
 
             if self.actPersonCount != 0:
                 update_problem_file_objects(sdp, pw.objectsDistribution)
@@ -271,7 +286,7 @@ class ContextBridge:
                 update_problem_file_goal(sdp, pw.goalDistribution)
                 plan_name, plan = start_planning(sdd, sdp)
 
-                self.executioner.execute_plan(plan_name)
+                self.executor.execute_plan(plan_name)
                 self.personCount -= self.actPersonCount
             time.sleep(self.freq)
 

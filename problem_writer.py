@@ -118,6 +118,9 @@ class problem_writer():
 
 
 if __name__ == '__main__':
+    """
+     Main here is used for  testing the problem_writer component
+    """
     writer = problem_writer()
     writer.setTemp("high", 1)
     writer.setHum("mid", 1)

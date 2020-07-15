@@ -6,7 +6,7 @@ import json
 from utils import load_plan, plan_to_list
 
 
-class Executioner:
+class Executor:
     def __init__(self):
         self.function = 'execute'
         self.id = 'executioner_0'
@@ -29,9 +29,15 @@ class Executioner:
         resp['value'] = value
         message = json.dumps(resp)
 
-        self.producer.channel.basic_publish(exchange=self.producer.exchange, routing_key=self.getRoutingKey(), body=message)
+        self.producer.channel.basic_publish(exchange=self.producer.exchange, routing_key=self.getRoutingKey(),
+                                            body=message)
 
     def execute_plan(self, plan_name):
+        """
+         Goes through the new plan and sends the actions for the affected actuators to the gateway
+        :param plan_name:
+        :return:
+        """
         actions = plan_to_list(load_plan(plan_name))
         print(str(actions))
         for action in actions:
@@ -74,7 +80,6 @@ class Executioner:
                 continue
             elif method == 'keep-light-on':
                 continue
-
 
             if method == 'even-distributed-reset':
                 continue

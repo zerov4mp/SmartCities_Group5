@@ -45,17 +45,20 @@ if __name__ == '__main__':
                 results.append(objects[i].id)
         return results
 
+
     @eel.expose
     def eelLightOn(id):
-        a =GetObjectById("device_la_"+ str(id))
-        print("light on called for "+str(id))
+        a = GetObjectById("device_la_" + str(id))
+        print("light on called for " + str(id))
         a.lightOn("js")
+
 
     @eel.expose
     def eelLightOff(id):
         a = GetObjectById("device_la_" + str(id))
-        print("light off called for "+str(id))
+        print("light off called for " + str(id))
         a.lightOff("js")
+
 
     @eel.expose
     def eelAddPerson():
@@ -106,6 +109,7 @@ if __name__ == '__main__':
         eel.init('web')
         eel.start('main.html', host="localhost", cmdline_args=['--start-fullscreen'])
 
+
     # Start simulating climate
     climate = Climate("stuttgart", 20190709, 600)
     climate.sim()
@@ -122,7 +126,7 @@ if __name__ == '__main__':
     """
          Creates and starts for our rooms the temperature, humidity, co2, and light sensors and the window and light 
          actuator (light bulb) 
-         """
+    """
     for i in range(0, len(rooms)):
         # Sensors
         t = TempSensor(typ="temperature", id="device_temp_" + str(i), location=rooms[i], freq=update_frequency,
@@ -139,7 +143,8 @@ if __name__ == '__main__':
         c.start()
         objects.append(c)
 
-        ls = LightSensor(typ="light_sensor", id="device_ls_" + str(i), location=rooms[i], freq=update_frequency, climate=climate, spread=8)
+        ls = LightSensor(typ="light_sensor", id="device_ls_" + str(i), location=rooms[i], freq=update_frequency,
+                         climate=climate, spread=8)
         ls.start()
         objects.append(ls)
 
@@ -160,7 +165,7 @@ if __name__ == '__main__':
         cc.start()
         objects.append(cc)
 
-        #connect actuators to sensors
+        # connect actuators to sensors
         Environment(cc, t).start()
         Environment(cc, h).start()
         Environment(cc, c).start()
@@ -176,12 +181,13 @@ if __name__ == '__main__':
     cs.start()
     objects.append(cs)
 
-    outSideTemp = TempSensor(typ="temperatureOut", id="Outside temperature", location=virtual_room, freq=1, climate=climate, spread=0, stepSpread=0)
+    outSideTemp = TempSensor(typ="temperatureOut", id="Outside temperature", location=virtual_room, freq=1,
+                             climate=climate, spread=0, stepSpread=0)
     outSideTemp.start()
     objects.append(outSideTemp)
 
     outSideHum = HumiditySensor(typ="humidityOut", id="Outside humidity", location=virtual_room, freq=1,
-                       mean=45, spread=15, stepSpread=3)
+                                mean=45, spread=15, stepSpread=3)
     outSideHum.start()
     objects.append(outSideHum)
 
@@ -215,12 +221,14 @@ if __name__ == '__main__':
         p.start()
         objects.append(p)
 
-        sls = SoundLevelMeterSensor(typ="sound_level", id="device_slms_" + str(i), location=loc, freq=update_frequency, spread=5, stepSpread=1)
+        sls = SoundLevelMeterSensor(typ="sound_level", id="device_slms_" + str(i), location=loc, freq=update_frequency,
+                                    spread=5, stepSpread=1)
         sls.start()
         objects.append(sls)
 
         # Actuators
-        sla = SoundAwarenessActuator(typ="sound_level_actuator", id="device_slma_" + str(i), location=loc, freq=update_frequency,
+        sla = SoundAwarenessActuator(typ="sound_level_actuator", id="device_slma_" + str(i), location=loc,
+                                     freq=update_frequency,
                                      consumer=Consumer("saa_queue_" + str(i), "gateway.sound_level_" + str(i)))
         sla.start()
         objects.append(sla)
@@ -247,7 +255,6 @@ if __name__ == '__main__':
         chair = GetObjectById(k)
         Environment(chair, table).start()
 
-
     """
      Creates and starts motion sensor at entrance
     """
@@ -259,8 +266,7 @@ if __name__ == '__main__':
     gateway = Gateway(freq=update_frequency, producer=Producer(), consumer=Consumer("sensors", "*.*.*.*.*.*"))
     gateway.start()
 
-    #con = ContextBridge(frequency=5, consumer=Consumer("context", "gateway.context"))
-    #con.start()
+    # con = ContextBridge(frequency=5, consumer=Consumer("context", "gateway.context"))
+    # con.start()
 
     Thread(target=eelStart, args=[]).start()
-
